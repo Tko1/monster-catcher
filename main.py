@@ -204,7 +204,11 @@ class Game:
                                 image,
                                 (TILE_WIDTH*x,
                                  TILE_HEIGHT*y))
-            layerIndex += 1
+            layerIndex += 1                    
+        screen.blit(background, (0,0))
+        screen.blit(self.mainPlayer.surface(),(0,0))
+        clock.tick(60)
+        pygame.display.flip()
         
     def update(self):
         pass
@@ -215,11 +219,6 @@ class Game:
             self.handleEvents()
             self.update()
             self.draw()
-        
-            screen.blit(background, (0,0))
-            screen.blit(self.mainPlayer.surface(),(0,0))
-            clock.tick(60)
-            pygame.display.flip()
 
     def __init__(self):
         self.mainPlayer = Player("player")
